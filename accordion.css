@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+
+.transition, .accord, ul li .up:before, ul li .up:after {
+  transition: all 0.25s ease-in-out;
+}
+
+.flipIn, h1, ul li {
+  animation: flipdown 0.5s ease both;
+}
+
+.no-select, h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.accordion .select {
+  font-family: "noto";
+  font-size: 14px;
+  padding: 8px 0;
+  display: block;
+  background-color: #e6e6e6;
+  margin: 0;
+  cursor: pointer;
+  color: #000;
+}
+
+.accordion .select span{width: 93%; margin-left: 16px;}
+
+.accordion .accord {
+  position: relative;
+  overflow: hidden;
+  max-height: 800px;
+  opacity: 1;
+  transform: translate(0, 0);
+  z-index: 2;
+  background: #f2f2f2;
+}
+
+.accordion {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin-bottom: 24px;
+}
+.accordion .acc {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #fff;
+  float: left;
+}
+.accordion .acc:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+.accordion .acc:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+.accordion .acc:nth-of-type(3) {
+  animation-delay: 1s;
+}
+.accordion .acc:last-of-type {
+  padding-bottom: 0;
+}
+.accordion .acc .up {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 16px;
+  right: 0;
+}
+.accordion .acc .up:before, .accordion .acc .up:after {
+  content: "";
+  position: absolute;
+  background-color: #404040;
+  width: 3px;
+  height: 9px;
+  right: 16px;
+}
+.accordion .acc .up:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+.accordion .acc .up:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+.accordion .acc input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+}
+.accordion .acc input[type=checkbox]:checked ~ .accord {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+.accordion .acc input[type=checkbox]:checked ~ .up:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+.accordion .acc input[type=checkbox]:checked ~ .up:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+
+/*SLIDE MENU RIGHT*/
+
+.menu .slide ul, .slide .up:before, .pencet .up:after {transition: all 0.25s ease-in; -moz-transition: all 0.25s ease-in; -webkit-transition: all 0.25s ease-in;}
+/*setelah dipencet*/
+.menu .slide ul {color: #000; font-size: 17px;/* height: 400px;*/ overflow-y: scroll; position: absolute; top: 64px; opacity: 1; width: 100%; z-index: 2; background: #161616; transition: all 0.35s ease-out;}
+.menu .slide ul li{list-style: none; border-top: 1px solid #212121; font-family: "r"; font-size: 14px;}
+.menu .slide ul li a{color: #b9b9b9; display: block; padding: 16px 32px;}
+.menu .slide ul li.subs{padding-left: 56px;}
+
+.menu .slide {padding: 0; margin: 0; position: relative;}
+.menu .slide .rr[type=checkbox] {position: absolute; right: 0; cursor: pointer; width: 64px; height: 64px; z-index: 1; opacity: 0; margin: 0;}
+.menu .slide .ll[type=checkbox] {position: absolute; left: 0; cursor: pointer; width: 48px; height: 64px; z-index: 1; opacity: 0; margin: 0;}
+
+/*sebelum dipencet*/
+.menu .slide .rr[type=checkbox]:checked ~ .menu .slide ul {opacity: 1; transition: all 0.5s;}
+
+/*direction*/
+.menu .slide .rr[type=checkbox]:checked ~ .sr{right: -100%;}
+.menu .slide .sr{right: 0;}
+
+.menu .slide .ll[type=checkbox]:checked ~ .sl{left: -100%;}
+.menu .slide .sl{left: 0;}
